@@ -238,7 +238,7 @@ async fn clean_files_batch(
   let rows = client
     .query(query, &[&millisecond_epoch, &offset, &limit])
     .await
-    .context("Failed to fetch file info rows")?;
+    .context("Failed to fetch fileinfo rows")?;
 
   let mut more_results = false;
 
@@ -309,7 +309,7 @@ async fn delete_file_info_rows(
   trace!("Params: {:#?}", &millisecond_epoch);
   if dry_run {
     info!(
-      "[DRY RUN] Would delete file info rows older than {}",
+      "[DRY RUN] Would delete `fileinfo` rows older than {}",
       millisecond_epoch
     );
     return Ok(());
@@ -317,8 +317,8 @@ async fn delete_file_info_rows(
   let result = client
     .execute(query, &[&millisecond_epoch])
     .await
-    .context("Failed to delete file info rows")?;
-  info!("Removed {} file information rows", result);
+    .context("Failed to delete `fileinfo` rows")?;
+  info!("Removed {} fileinfo rows", result);
   Ok(())
 }
 
@@ -331,7 +331,7 @@ async fn delete_post_rows(client: &Client, millisecond_epoch: i64, dry_run: bool
   trace!("Params: {:#?}", &millisecond_epoch);
   if dry_run {
     info!(
-      "[DRY RUN] Would delete post rows older than {}",
+      "[DRY RUN] Would delete `posts` rows older than {}",
       millisecond_epoch
     );
     return Ok(());
@@ -339,7 +339,7 @@ async fn delete_post_rows(client: &Client, millisecond_epoch: i64, dry_run: bool
   let result = client
     .execute(query, &[&millisecond_epoch])
     .await
-    .context("Failed to delete post rows")?;
+    .context("Failed to delete `posts` rows")?;
   info!("Removed {} post rows", result);
   Ok(())
 }
