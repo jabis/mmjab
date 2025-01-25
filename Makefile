@@ -2,12 +2,10 @@ prog :=mmjab
 
 debug ?=
 
-$(info debug is $(debug))
-
 ifdef debug
   release :=
   target :=debug
-  extension :=-debug
+  extension :=
 else
   release :=--release
   target :=release
@@ -21,6 +19,8 @@ install:
 	cp target/$(target)/$(prog) ./$(prog)$(extension) && chmod +x ./$(prog)$(extension)
 
 all: build install
+
+rebuild: clean build install
 
 clean:
 	rm ./$(prog)$(extension)
