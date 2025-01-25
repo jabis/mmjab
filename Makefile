@@ -21,6 +21,9 @@ install:
 	cp target/$(target)/$(prog) ./$(prog)$(extension) && chmod +x ./$(prog)$(extension)
 
 all: build install
- 
+
+clean:
+	rm ./$(prog)$(extension)
+
 help:
 	@echo "usage: make $(prog) [debug=1]"
