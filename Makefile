@@ -19,7 +19,7 @@ install:
 	cp target/$(target)/$(prog) ./$(prog)$(extension) && chmod +x ./$(prog)$(extension)
 
 env:
-	cp ./.env.example ./.env
+	test -e ./.env || cp -p ./.env.example ./.env
 
 all: build install env
 
