@@ -21,9 +21,9 @@ install:
 env:
 	cp ./.env.example ./.env
 
-all: build install
+all: build install env
 
-rebuild: clean build install
+rebuild: clean build install env
 
 clean:
 	rm ./.env
