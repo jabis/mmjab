@@ -18,11 +18,15 @@ build:
 install:
 	cp target/$(target)/$(prog) ./$(prog)$(extension) && chmod +x ./$(prog)$(extension)
 
+env:
+	cp ./.env.example ./.env
+
 all: build install
 
 rebuild: clean build install
 
 clean:
+	rm ./.env
 	rm ./$(prog)$(extension)
 
 help:

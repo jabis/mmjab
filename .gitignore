@@ -1,6 +1,7 @@
 /data
 /target
 .env
+.env.backup
 mmjab
 *.sql
 *.csv
