@@ -28,7 +28,7 @@ async fn main() {
       Arg::new("db_name")
         .short('n')
         .long("db-name")
-        .env("DATABASE_NAME")
+        .env("PGDATABASE")
         .help("Database name")
         .required(true),
     )
@@ -36,7 +36,7 @@ async fn main() {
       Arg::new("db_user")
         .short('u')
         .long("db-user")
-        .env("DATABASE_USER")
+        .env("PGUSER")
         .help("Database user")
         .required(true),
     )
@@ -52,7 +52,7 @@ async fn main() {
       Arg::new("db_host")
         .short('h')
         .long("db-host")
-        .env("DATABASE_HOST")
+        .env("PGHOST")
         .help("Database host")
         .required(true),
     )
@@ -60,7 +60,7 @@ async fn main() {
       Arg::new("db_port")
         .short('P')
         .long("db-port")
-        .env("DATABASE_PORT")
+        .env("PGPORT")
         .help("Database port")
         .required(true),
     )
