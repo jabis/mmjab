@@ -132,6 +132,7 @@ async fn main() {
   }
 }
 
+#[allow(clippy::too_many_arguments)]
 pub async fn clean(
   mattermost_data_directory: &str,
   database_name: &str,
